@@ -1,0 +1,23 @@
+<AlteryxJavaScriptPlugin>
+	<EngineSettings EngineDll="Python" EngineDllEntryPoint="main.py" SDKVersion="10.1" ToolFamily="tools" />
+	<GuiSettings Html="index.html" Icon="icon.png" SDKVersion="10.1">
+		<InputConnections>
+			<Connection AllowMultiple="False" Label="" Name="Input" Optional="False" Type="Connection" />
+		</InputConnections>
+		<OutputConnections>
+			<Connection AllowMultiple="False" Label="" Name="Output" Optional="False" Type="Connection" />
+		</OutputConnections>
+	</GuiSettings>
+	<Properties>
+		<MetaInfo>
+			<Name>GoogleTranslate</Name>
+			<Description>Translates incoming selected field to selected language</Description>
+			<ToolVersion>1.0</ToolVersion>
+			<CategoryName>Developer</CategoryName>
+			<SearchTags>python, sdk, python sdk</SearchTags>
+			<Author>Matthew Paden</Author>
+			<Company>Alteryx, Inc.</Company>
+			<Copyright>2020</Copyright>
+		</MetaInfo>
+	</Properties>
+</AlteryxJavaScriptPlugin>

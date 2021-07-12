@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html style="padding:20px">
+
+<head>
+  <meta charset="utf-8">
+  <title>Alteryx Translate Tool</title>
+  <script>
+    document.write('<link rel="import" href="' + window.Alteryx.LibDir + '2/lib/includes.html">');
+  </script>
+</head>
+
+<body>
+  <h2>Alteryx Translate Tool</h2>
+  <div style="padding-bottom:10px"><label>XMSG("Column to Translate")</label></div>
+  <ayx data-ui-props = "{type: 'DropDown'}" data-item-props = 
+    "{
+      dataName: 'Field',
+      dataType: 'FieldSelector',
+      anchorIndex: '0',
+      connectionIndex:'0'
+    }"
+  >
+  <div style="padding-top:20px;padding-bottom:10px;"><label>XMSG("Name of New Field")</label></div>
+      <ayx data-ui-props='{type:"TextBox", widgetId:"NewField"}'></ayx>
+
+	<div style="padding-top:30px; padding-bottom:10px;">
+    <label>XMSG("Language to Translate to")</label>
+  </div>
+		<ayx data-ui-props='{type: "DropDown", widgetId:"Translation", searchable: true}'>
+		</ayx>
+  
+	<script type="text/javascript">
+		Alteryx.Gui.BeforeLoad = function (manager, AlteryxDataItems, json) {
+
+      //textbox for new field
+      var textBoxDataItem = new AlteryxDataItems.SimpleString('TextBox')
+        manager.addDataItem(textBoxDataItem)
+        manager.bindDataItemToWidget(textBoxDataItem, 'NewField') // Bind to widget
+
+			var stringSelector = new AlteryxDataItems.StringSelector('DropDownStringSelector1', {
+          optionList: [ //Just picked the top 20 Lang.
+            {label: 'XMSG("English")', value: "en"},
+            {label: 'XMSG("Chinese (simplified)")', value: "zh-cn"},
+            {label: 'XMSG("Chinese (traditional)")', value: "zh-tw"},
+            {label: 'XMSG("Hindi")', value: "hi"},
+            {label: 'XMSG("French")', value: "fr"},
+            {label: 'XMSG("Spanish")', value: "es"},
+            {label: 'XMSG("Arabic")', value: "ar"},
+            {label: 'XMSG("Bengali")', value: "bn"},
+            {label: 'XMSG("Russian")', value: "ru"},
+            {label: 'XMSG("Portuguese")', value: "pt"},
+            {label: 'XMSG("Indonesian")', value: "id"},
+            {label: 'XMSG("Urdu")', value: "ur"},
+            {label: 'XMSG("German")', value: "de"},
+            {label: 'XMSG("Japanese")', value: "ja"},
+            {label: 'XMSG("Swahili")', value: "sw"},
+            {label: 'XMSG("Marathi")', value: "mr"},
+            {label: 'XMSG("Telugu")', value: "te"},
+            {label: 'XMSG("Punjabi")', value: "pa"},
+            {label: 'XMSG("Tamil")', value: "ta"},
+            {label: 'XMSG("Filipino")', value: "fil"},
+            {label: 'XMSG("Turkish")', value: "tr"}
+          ]
+        })
+        manager.addDataItem(stringSelector)
+        manager.bindDataItemToWidget(stringSelector, 'Translation') // Bind to widget
+		}
+	</script>
+</body>
+
+</html>
